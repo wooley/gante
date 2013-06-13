@@ -53,6 +53,7 @@ C++ Gante Component
 
 
 主體控件
+
 1.GanteGrid - 甘特圖畫框
 
     Background
