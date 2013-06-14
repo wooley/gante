@@ -12,6 +12,8 @@ namespace  GtGante {
 	#endif
 
 	#define Gt_String std::string
+
+    typedef unsigned Gt_uint32_t;
 }
 
 #endif
