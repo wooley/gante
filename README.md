@@ -3,7 +3,7 @@ gante
 
 C++ Gante Component
 
-甘特圖開發筆記
+甘特圖開發筆記 V1.0 
 
 
 特性：
