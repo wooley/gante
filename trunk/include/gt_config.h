@@ -4,9 +4,14 @@
 #include <string>
 #include <vector>
 
-#define Gt_long unsigned long int
-#define Gt_String std::string
+namespace  GtGante {
+	#ifdef _WIN32
+		typedef unsigned __int64 Gt_uint64_t;
+	#else
+		typedef unsigned long long Gt_uint64_t;
+	#endif
 
-
+	#define Gt_String std::string
+}
 
 #endif

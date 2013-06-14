@@ -6,40 +6,54 @@
 
 namespace GtGante {
 
+	template <typename T>
 	class gt_Task
 	{
 	private:
-		long Id;
-		Gt_long BeginTime;
-		Gt_long FinishTime;
-		Gt_long Duration;	
-		Gt_String Equipment;
+		long 		m_Id;
+		Gt_uint64_t 	m_BeginTime;
+		Gt_uint64_t 	m_FinishTime;
+		Gt_uint64_t 	m_Duration;	
+		Gt_String 	m_Equipment;
 
-		long Prior;
+		long 		m_Prior;
+		T*                     Data;
+
+		bool          	isLeaf;
 	public:
 		gt_Task(void);
 		~gt_Task();
+
+		void setId(long Id);
 	};
 
 	class gt_BiTree;
 	typedef gt_BiTree gt_TreeNode;
 	typedef gt_BiTree gt_TreeRoot;
 
+	template <typename T>
 	class gt_BiTree
 	{
 	private:
+		T* m_t;
 		gt_TreeNode* Node;
 	public:
 		gt_BiTree(void);
 		~gt_BiTree();
+
+		gt_TreeNode* AddLeftNode();
+		gt_TreeNode* AddRightNode();
+
+		bool Sort();
 	};
 
 	class gt_Gante
 	{
 	private:
-		long m_Id;
-		gt_BiTree* Holder; 
-		gt_FactoryCalendar* fc; 
+		long 			m_Id;
+		gt_BiTree<gt_Task*>	TaskRoot; 
+		std::map<int,gt_Task*>   Tasks;
+		gt_FactoryCalendar* 	 fc; 
 	public:
 		gt_Gante(void);
 		~gt_Gante();
@@ -60,6 +74,8 @@ namespace GtGante {
 		bool downGrade(long Id);  // 降级
 
 		void update( void );	
+
+		bool Clear(void);
 	};
 };
 
